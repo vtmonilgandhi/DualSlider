@@ -1,0 +1,632 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		070449DF2F36D41567FF18C70A32A4BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		0A364B026B3B9277E0A557AA7995562E /* DualSliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F16EEF00B13DD743CE59CFB674082 /* DualSliderExtensions.swift */; };
+		105E2E09FD4062E51FF459670CBC15C6 /* AvailableHapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200A6EBBF366103A5BB6EFAA742A04F9 /* AvailableHapticFeedback.swift */; };
+		15A7427C01EFA954E606718C1AC6804B /* Pods-DualSliderExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5938D82A727EB1219DD976F89C634AD0 /* Pods-DualSliderExample-dummy.m */; };
+		275B0A8B03EC02C3976D9C91CCC2ADB4 /* DualSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = FE30A8FAA64B822676476435B91F3010 /* DualSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6869E3F84D507146F89F84C379B64737 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		6F014C81E956F5CE64470FC176FDBE24 /* MiniLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA54597B1F65744E39788009D02CBA5D /* MiniLayout.swift */; };
+		7E09D8969F9069B5BAC9DA88C78A9D90 /* DualSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 891B19D5CD8A4D737990429BE7B53B46 /* DualSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8372B998A52A327738D5C4FD27850E3A /* DualSlider+Drag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1247796DB0C9AD7E067027B0AD076ED2 /* DualSlider+Drag.swift */; };
+		A32C521A49BB42D2B4BD20434892B6FB /* Pods-DualSliderExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 815867EF841034EAB20F67E1206D3768 /* Pods-DualSliderExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BCE3F1C05FA1ADD87D2F995CA769AF32 /* DualSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B16BD9D3627D9820C497D58CE785D /* DualSlider.swift */; };
+		C839B1F382FA56300F76EE6C1BAEEFD7 /* DualSliderConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEEF9525980AE67B8957D190C22C89F /* DualSliderConstant.swift */; };
+		EBEDDD64F1F34C185D023076A5AC67BF /* DualSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4B47393BA7750B5C7F743CBEF0C55C /* DualSlider-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3385CA01151F6D51979AD10E20C42CC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99917342EE545513651062B5AB62316A;
+			remoteInfo = DualSlider;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1247796DB0C9AD7E067027B0AD076ED2 /* DualSlider+Drag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DualSlider+Drag.swift"; path = "DualSlider/DualSlider/DualSlider+Drag.swift"; sourceTree = "<group>"; };
+		200A6EBBF366103A5BB6EFAA742A04F9 /* AvailableHapticFeedback.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AvailableHapticFeedback.swift; path = DualSlider/DualSlider/AvailableHapticFeedback.swift; sourceTree = "<group>"; };
+		20AAF8F8269B6C43C84722F18F0692E5 /* Pods-DualSliderExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DualSliderExample.release.xcconfig"; sourceTree = "<group>"; };
+		4A1F16EEF00B13DD743CE59CFB674082 /* DualSliderExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DualSliderExtensions.swift; path = DualSlider/DualSlider/DualSliderExtensions.swift; sourceTree = "<group>"; };
+		5938D82A727EB1219DD976F89C634AD0 /* Pods-DualSliderExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DualSliderExample-dummy.m"; sourceTree = "<group>"; };
+		60789DF5C4D24EEFF438FBCA3B66DF33 /* Pods-DualSliderExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DualSliderExample.modulemap"; sourceTree = "<group>"; };
+		6278AD0CF4A6B6A0D72C8B0EE3ED1B6A /* DualSlider-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DualSlider-Info.plist"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		790A57BA8B65CF3D8B31252C449943E7 /* Pods-DualSliderExample-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DualSliderExample-Info.plist"; sourceTree = "<group>"; };
+		815867EF841034EAB20F67E1206D3768 /* Pods-DualSliderExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DualSliderExample-umbrella.h"; sourceTree = "<group>"; };
+		891B19D5CD8A4D737990429BE7B53B46 /* DualSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DualSlider-umbrella.h"; sourceTree = "<group>"; };
+		892EAFE1D3B59D99E36C79059B193171 /* Pods-DualSliderExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DualSliderExample.debug.xcconfig"; sourceTree = "<group>"; };
+		8FF47D186511B2C8ECFD43D9821BC7E7 /* DualSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DualSlider.framework; path = DualSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C07D6C836176A860CDD4CA8C5D4A2D8 /* DualSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DualSlider.modulemap; sourceTree = "<group>"; };
+		9C4B16BD9D3627D9820C497D58CE785D /* DualSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DualSlider.swift; path = DualSlider/DualSlider/DualSlider.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A3759F96A1F7BA6FB0497125C6DD97BF /* Pods-DualSliderExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DualSliderExample-acknowledgements.plist"; sourceTree = "<group>"; };
+		B6505FBEB29A8718B02B755653CCDC27 /* DualSlider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DualSlider.debug.xcconfig; sourceTree = "<group>"; };
+		BF72AF29E62109042AEB27E8380CCA97 /* Pods_DualSliderExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DualSliderExample.framework; path = "Pods-DualSliderExample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C98547BE4F07DCBF348FFAD15529DCC3 /* Pods-DualSliderExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DualSliderExample-frameworks.sh"; sourceTree = "<group>"; };
+		CA8DE4AD9BDD1AF7D0187B2F55850E1B /* Pods-DualSliderExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DualSliderExample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CC4B47393BA7750B5C7F743CBEF0C55C /* DualSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DualSlider-dummy.m"; sourceTree = "<group>"; };
+		D1A32F094E1DC4A38FB7D5F0A8532973 /* DualSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DualSlider-prefix.pch"; sourceTree = "<group>"; };
+		E141EB3AFA5575B6344ED97CCCD8CDE7 /* DualSlider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DualSlider.release.xcconfig; sourceTree = "<group>"; };
+		EFEEF9525980AE67B8957D190C22C89F /* DualSliderConstant.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DualSliderConstant.swift; path = DualSlider/DualSlider/DualSliderConstant.swift; sourceTree = "<group>"; };
+		FA54597B1F65744E39788009D02CBA5D /* MiniLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MiniLayout.swift; path = DualSlider/DualSlider/MiniLayout.swift; sourceTree = "<group>"; };
+		FE30A8FAA64B822676476435B91F3010 /* DualSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DualSlider.h; path = DualSlider/DualSlider/DualSlider.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5F2E7F48CF02C5BC8CEC3FA29E8A56C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				070449DF2F36D41567FF18C70A32A4BB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDC02014F780D5E02087937D887957E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6869E3F84D507146F89F84C379B64737 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		488C65401E0F2F9579A1CB6BF7974BE7 /* DualSlider */ = {
+			isa = PBXGroup;
+			children = (
+				200A6EBBF366103A5BB6EFAA742A04F9 /* AvailableHapticFeedback.swift */,
+				FE30A8FAA64B822676476435B91F3010 /* DualSlider.h */,
+				9C4B16BD9D3627D9820C497D58CE785D /* DualSlider.swift */,
+				1247796DB0C9AD7E067027B0AD076ED2 /* DualSlider+Drag.swift */,
+				EFEEF9525980AE67B8957D190C22C89F /* DualSliderConstant.swift */,
+				4A1F16EEF00B13DD743CE59CFB674082 /* DualSliderExtensions.swift */,
+				FA54597B1F65744E39788009D02CBA5D /* MiniLayout.swift */,
+				E0F96D149DAA0C186BA402B3C00B5186 /* Support Files */,
+			);
+			name = DualSlider;
+			path = DualSlider;
+			sourceTree = "<group>";
+		};
+		4C29D615C6BC34D24FA92A0BBF4E2F40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8FF47D186511B2C8ECFD43D9821BC7E7 /* DualSlider.framework */,
+				BF72AF29E62109042AEB27E8380CCA97 /* Pods_DualSliderExample.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		9B2B11ED4CAA720353D5114B3E7A2754 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				ED6ADA88E9F5340EAAF61C9E1C1F6D5B /* Pods-DualSliderExample */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		B5B9D222136D400193B67A4F0B71A8B9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				488C65401E0F2F9579A1CB6BF7974BE7 /* DualSlider */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				B5B9D222136D400193B67A4F0B71A8B9 /* Pods */,
+				4C29D615C6BC34D24FA92A0BBF4E2F40 /* Products */,
+				9B2B11ED4CAA720353D5114B3E7A2754 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E0F96D149DAA0C186BA402B3C00B5186 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9C07D6C836176A860CDD4CA8C5D4A2D8 /* DualSlider.modulemap */,
+				CC4B47393BA7750B5C7F743CBEF0C55C /* DualSlider-dummy.m */,
+				6278AD0CF4A6B6A0D72C8B0EE3ED1B6A /* DualSlider-Info.plist */,
+				D1A32F094E1DC4A38FB7D5F0A8532973 /* DualSlider-prefix.pch */,
+				891B19D5CD8A4D737990429BE7B53B46 /* DualSlider-umbrella.h */,
+				B6505FBEB29A8718B02B755653CCDC27 /* DualSlider.debug.xcconfig */,
+				E141EB3AFA5575B6344ED97CCCD8CDE7 /* DualSlider.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DualSlider";
+			sourceTree = "<group>";
+		};
+		ED6ADA88E9F5340EAAF61C9E1C1F6D5B /* Pods-DualSliderExample */ = {
+			isa = PBXGroup;
+			children = (
+				60789DF5C4D24EEFF438FBCA3B66DF33 /* Pods-DualSliderExample.modulemap */,
+				CA8DE4AD9BDD1AF7D0187B2F55850E1B /* Pods-DualSliderExample-acknowledgements.markdown */,
+				A3759F96A1F7BA6FB0497125C6DD97BF /* Pods-DualSliderExample-acknowledgements.plist */,
+				5938D82A727EB1219DD976F89C634AD0 /* Pods-DualSliderExample-dummy.m */,
+				C98547BE4F07DCBF348FFAD15529DCC3 /* Pods-DualSliderExample-frameworks.sh */,
+				790A57BA8B65CF3D8B31252C449943E7 /* Pods-DualSliderExample-Info.plist */,
+				815867EF841034EAB20F67E1206D3768 /* Pods-DualSliderExample-umbrella.h */,
+				892EAFE1D3B59D99E36C79059B193171 /* Pods-DualSliderExample.debug.xcconfig */,
+				20AAF8F8269B6C43C84722F18F0692E5 /* Pods-DualSliderExample.release.xcconfig */,
+			);
+			name = "Pods-DualSliderExample";
+			path = "Target Support Files/Pods-DualSliderExample";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		34241602F8FF0C1DD2E7D87C9BC43E38 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A32C521A49BB42D2B4BD20434892B6FB /* Pods-DualSliderExample-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43436932AF1A1CFC667FB3101F393394 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E09D8969F9069B5BAC9DA88C78A9D90 /* DualSlider-umbrella.h in Headers */,
+				275B0A8B03EC02C3976D9C91CCC2ADB4 /* DualSlider.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2FA6F3CE8AF87563096ADD2F7DEE4837 /* Pods-DualSliderExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9F3163D67E689BC5CB71C88DFECE8AB /* Build configuration list for PBXNativeTarget "Pods-DualSliderExample" */;
+			buildPhases = (
+				34241602F8FF0C1DD2E7D87C9BC43E38 /* Headers */,
+				A5CC6A9DBC9570B52E72F0B8930353F2 /* Sources */,
+				BDC02014F780D5E02087937D887957E1 /* Frameworks */,
+				1E3CC0AB87279F63954AB3A31CFADD23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5F3D4ACD3DB281B31EAF11DBB57BC4DC /* PBXTargetDependency */,
+			);
+			name = "Pods-DualSliderExample";
+			productName = "Pods-DualSliderExample";
+			productReference = BF72AF29E62109042AEB27E8380CCA97 /* Pods_DualSliderExample.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		99917342EE545513651062B5AB62316A /* DualSlider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3CE15BCBA4FF3B8B91886D347CB281D /* Build configuration list for PBXNativeTarget "DualSlider" */;
+			buildPhases = (
+				43436932AF1A1CFC667FB3101F393394 /* Headers */,
+				DE920F572945726433B5A249B03325CE /* Sources */,
+				5F2E7F48CF02C5BC8CEC3FA29E8A56C8 /* Frameworks */,
+				75801A09CA53FD48211FE2A59BE607CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DualSlider;
+			productName = DualSlider;
+			productReference = 8FF47D186511B2C8ECFD43D9821BC7E7 /* DualSlider.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 4C29D615C6BC34D24FA92A0BBF4E2F40 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				99917342EE545513651062B5AB62316A /* DualSlider */,
+				2FA6F3CE8AF87563096ADD2F7DEE4837 /* Pods-DualSliderExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1E3CC0AB87279F63954AB3A31CFADD23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75801A09CA53FD48211FE2A59BE607CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A5CC6A9DBC9570B52E72F0B8930353F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15A7427C01EFA954E606718C1AC6804B /* Pods-DualSliderExample-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE920F572945726433B5A249B03325CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				105E2E09FD4062E51FF459670CBC15C6 /* AvailableHapticFeedback.swift in Sources */,
+				8372B998A52A327738D5C4FD27850E3A /* DualSlider+Drag.swift in Sources */,
+				EBEDDD64F1F34C185D023076A5AC67BF /* DualSlider-dummy.m in Sources */,
+				BCE3F1C05FA1ADD87D2F995CA769AF32 /* DualSlider.swift in Sources */,
+				C839B1F382FA56300F76EE6C1BAEEFD7 /* DualSliderConstant.swift in Sources */,
+				0A364B026B3B9277E0A557AA7995562E /* DualSliderExtensions.swift in Sources */,
+				6F014C81E956F5CE64470FC176FDBE24 /* MiniLayout.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5F3D4ACD3DB281B31EAF11DBB57BC4DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DualSlider;
+			target = 99917342EE545513651062B5AB62316A /* DualSlider */;
+			targetProxy = 3385CA01151F6D51979AD10E20C42CC7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		59D364EAA5515A0F6B381A0B6C96713E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 892EAFE1D3B59D99E36C79059B193171 /* Pods-DualSliderExample.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DualSliderExample/Pods-DualSliderExample-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DualSliderExample/Pods-DualSliderExample.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		9553C89E183877A5CB2F3C6801BEC129 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		CFDDFEFCC23825DB10119C24FA388345 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E141EB3AFA5575B6344ED97CCCD8CDE7 /* DualSlider.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DualSlider/DualSlider-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DualSlider/DualSlider-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/DualSlider/DualSlider.modulemap";
+				PRODUCT_MODULE_NAME = DualSlider;
+				PRODUCT_NAME = DualSlider;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F290550F8A19295641A042768FDDA935 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6505FBEB29A8718B02B755653CCDC27 /* DualSlider.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DualSlider/DualSlider-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DualSlider/DualSlider-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/DualSlider/DualSlider.modulemap";
+				PRODUCT_MODULE_NAME = DualSlider;
+				PRODUCT_NAME = DualSlider;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F32751A0D40D35BA569C49B2849FEBCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20AAF8F8269B6C43C84722F18F0692E5 /* Pods-DualSliderExample.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DualSliderExample/Pods-DualSliderExample-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DualSliderExample/Pods-DualSliderExample.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */,
+				9553C89E183877A5CB2F3C6801BEC129 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3CE15BCBA4FF3B8B91886D347CB281D /* Build configuration list for PBXNativeTarget "DualSlider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F290550F8A19295641A042768FDDA935 /* Debug */,
+				CFDDFEFCC23825DB10119C24FA388345 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9F3163D67E689BC5CB71C88DFECE8AB /* Build configuration list for PBXNativeTarget "Pods-DualSliderExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59D364EAA5515A0F6B381A0B6C96713E /* Debug */,
+				F32751A0D40D35BA569C49B2849FEBCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

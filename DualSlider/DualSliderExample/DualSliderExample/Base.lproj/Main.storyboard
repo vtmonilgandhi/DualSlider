@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -17,27 +16,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0E-zu-3pi" customClass="DualSlider">
-                                <rect key="frame" x="103.5" y="184" width="207" height="538"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Rd-GW-eOL" customClass="DualSlider">
+                                <rect key="frame" x="87" y="94.5" width="240" height="717"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="b0E-zu-3pi" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="2eh-sH-dBU"/>
-                            <constraint firstItem="b0E-zu-3pi" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="WDA-oF-Bec"/>
-                            <constraint firstItem="b0E-zu-3pi" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="oe7-1w-dYI"/>
-                            <constraint firstItem="b0E-zu-3pi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="poF-Rd-2Up"/>
+                            <constraint firstItem="9Rd-GW-eOL" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.57971" id="DUh-HN-Jih"/>
+                            <constraint firstItem="9Rd-GW-eOL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RWJ-pP-b2T"/>
+                            <constraint firstItem="9Rd-GW-eOL" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="ZZn-yW-dIZ"/>
+                            <constraint firstItem="9Rd-GW-eOL" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="fxc-nk-Hdc"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dualSlider" destination="b0E-zu-3pi" id="O6O-0i-Esx"/>
+                        <outlet property="dualSlider" destination="9Rd-GW-eOL" id="9Ke-S8-9aI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114" y="50"/>
+            <point key="canvasLocation" x="12" y="50"/>
         </scene>
     </scenes>
     <resources>
