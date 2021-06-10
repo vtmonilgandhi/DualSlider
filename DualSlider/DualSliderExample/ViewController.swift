@@ -23,7 +23,5 @@ class ViewController: UIViewController {
                               heatingValue: CGFloat(60),
                               deadBand: CGFloat(5))
     }
-
-
 }
 

@@ -2,40 +2,40 @@ import UIKit
 
 open class DualSlider: UIControl {
     
-    // MARK: - Variables
-    var thumbViews: [UIImageView] = []
-    var valueLabels: [UITextField] = [] // UILabels are a pain to layout, text fields look nice as-is.
-    var trackView = UIView()
-    var lblGhostBuble = UILabel()
-    var isGeoFencing = false
-    let slideView = UIView()
+        // MARK: - Variables
+    private var thumbViews: [UIImageView] = []
+    private var valueLabels: [UITextField] = [] // UILabels are a pain to layout, text fields look nice as-is.
+    private var trackView = UIView()
+    private var lblGhostBuble = UILabel()
+    public var isGeoFencing = false
+    private let slideView = UIView()
     private let panGestureView = UIView()
     
     private var shapeLayer = CAShapeLayer()
     private var fanStepLayer = CAShapeLayer()
     
-    //Upper and lower layer for auto slider (red and blue color layer)
+        //Upper and lower layer for auto slider (red and blue color layer)
     private var lowerLayer = CAShapeLayer()
     private var upperLayer = CAShapeLayer()
     
-    /// Settings Variables
-    var dotRadius: Float = 6
-    let margin: CGFloat = 32
-    var isSettingValue = false
-    var draggedThumbIndex: Int = -1
-    var sliderMode: SliderMode = .cooling
-    var arrFanMode: [String] = []
-    var fanStepColor: CGColor = SliderStateColor.fanStepColor.cgColor
-    var geoFencingUnit = "Miles"
+        /// Settings Variables
+    private var dotRadius: Float = 6
+    private let margin: CGFloat = 32
+    private var isSettingValue = false
+    private var draggedThumbIndex: Int = -1
+    public var sliderMode: SliderMode = .cooling
+    public var arrFanMode: [String] = []
+    public var fanStepColor: CGColor = SliderStateColor.fanStepColor.cgColor
+    public var geoFencingUnit = "Miles"
     private var unlockInterval: Double = 0
     private weak var unlockTimer: Timer?
     lazy var defaultThumbImage: UIImage? = .circle()
-    /// generate haptic feedback when hitting snap steps
-    var isHapticSnap: Bool = true
-    var selectionFeedbackGenerator = AvailableHapticFeedback()
+        /// generate haptic feedback when hitting snap steps
+    public var isHapticSnap: Bool = true
+    private var selectionFeedbackGenerator = AvailableHapticFeedback()
     
-    // MARK: - Computed properties
-    var thumbCount: Int {
+        // MARK: - Computed properties
+    public var thumbCount: Int {
         get {
             return thumbViews.count
         }
@@ -45,7 +45,7 @@ open class DualSlider: UIControl {
         }
     }
     
-    var thumbImage: UIImage? {
+    public var thumbImage: UIImage? {
         didSet {
             thumbViews.forEach { $0.image = defaultThumbImage }
             setupTrackLayoutMargins()
@@ -53,7 +53,7 @@ open class DualSlider: UIControl {
         }
     }
     
-    var trackWidth: CGFloat = 6 {
+    public var trackWidth: CGFloat = 6 {
         didSet {
             let widthAttribute: NSLayoutConstraint.Attribute = orientation == .vertical ? .width : .height
             trackView.removeFirstConstraint { $0.firstAttribute == widthAttribute }
@@ -61,8 +61,8 @@ open class DualSlider: UIControl {
         }
     }
     
-    //Slider current values
-    var value: [CGFloat] = [] {
+        //Slider current values
+    public var value: [CGFloat] = [] {
         didSet {
             if isSettingValue { return }
             adjustThumbCountToValueCount()
@@ -73,28 +73,18 @@ open class DualSlider: UIControl {
         }
     }
     
-    var minimumValue: CGFloat = 0 { didSet { adjustValuesToStepAndLimits() } }
-    var maximumValue: CGFloat = 1 { didSet { adjustValuesToStepAndLimits() } }
-    var coolMinValue: CGFloat = 0
-    var heatMaxValue: CGFloat = 1
-    /// snap thumbs to specific values, evenly spaced. (default = 0: allow any value)
-    var snapStepSize: CGFloat = 0 { didSet { adjustValuesToStepAndLimits() } }
+    public var minimumValue: CGFloat = 0 { didSet { adjustValuesToStepAndLimits() } }
+    public var maximumValue: CGFloat = 1 { didSet { adjustValuesToStepAndLimits() } }
+    public var coolMinValue: CGFloat = 0
+    public var heatMaxValue: CGFloat = 1
+        /// snap thumbs to specific values, evenly spaced. (default = 0: allow any value)
+    public var snapStepSize: CGFloat = 0 { didSet { adjustValuesToStepAndLimits() } }
     
-    var roundedValue: [Int] {
+    public var roundedValue: [Int] {
         return value.map({Int($0)})
     }
     
-    /*var fanSpeed: FanSpeed = .Medium {
-     willSet {
-     snapStepSize = (maximumValue / CGFloat(FanSpeed.totalSteps))
-     let currentVal = maximumValue - ((maximumValue / CGFloat(FanSpeed.totalSteps)) * CGFloat(newValue.index))
-     value = [currentVal]
-     }
-     }*/
-    
-    //var arrFanMode:[String] = ["VHigh", "High", "Medium", "Low", "VLow", "Off"]
-    
-    var deadBand: CGFloat = 5 {
+    public var deadBand: CGFloat = 5 {
         willSet {
             if sliderMode == .auto {
                 let diffVal = value[1] - value[0]
@@ -112,7 +102,7 @@ open class DualSlider: UIControl {
         }
     }
     
-    var currentFanSpeed: Int = 0 {
+    public var currentFanSpeed: Int = 0 {
         willSet {
             if sliderMode == .fan {
                 snapStepSize = (maximumValue / CGFloat(arrFanMode.count - 1))
@@ -122,22 +112,22 @@ open class DualSlider: UIControl {
         }
     }
     
-    var currentHeatValue: Int = 0 {
+    public var currentHeatValue: Int = 0 {
         willSet {
-            //updateHeating(newValue: newValue)
+                //updateHeating(newValue: newValue)
             changeCurrentValue(newValue: CGFloat(newValue), type: .heating)
         }
     }
     
-    var currentCoolValue: Int = 0 {
+    public var currentCoolValue: Int = 0 {
         willSet {
-            //updateCooling(newValue: newValue)
+                //updateCooling(newValue: newValue)
             changeCurrentValue(newValue: CGFloat(newValue), type: .cooling)
         }
     }
     
-    /// show value labels next to thumbs. (default: show no label)
-    var valueLabelPosition: NSLayoutConstraint.Attribute = .notAnAttribute {
+        /// show value labels next to thumbs. (default: show no label)
+    private var valueLabelPosition: NSLayoutConstraint.Attribute = .notAnAttribute {
         didSet {
             valueLabels.removeViewsStartingAt(0)
             if valueLabelPosition != .notAnAttribute {
@@ -148,7 +138,7 @@ open class DualSlider: UIControl {
         }
     }
     
-    var orientation: NSLayoutConstraint.Axis = .horizontal {
+    public var orientation: NSLayoutConstraint.Axis = .horizontal {
         didSet {
             setupOrientation()
             invalidateIntrinsicContentSize()
@@ -156,7 +146,7 @@ open class DualSlider: UIControl {
         }
     }
     
-    var valueLabelFormatter: NumberFormatter = {
+    public var valueLabelFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = 2
         formatter.minimumIntegerDigits = 1
@@ -164,8 +154,8 @@ open class DualSlider: UIControl {
         return formatter
     }()
     
-    //This property is used to enable/disable slider for a while.
-    var isLocked: Bool = false {
+        //This property is used to enable/disable slider for a while.
+    public var isLocked: Bool = false {
         willSet {
             panGestureView.isUserInteractionEnabled = !newValue
             let colorToBeSet = newValue ? SliderStateColor.disabledStateColor : self.sliderMode.color
@@ -189,24 +179,24 @@ open class DualSlider: UIControl {
                 thumbViews.forEach({$0.tintColor = colorToBeSet})
             }
             
-            // START: If User has set autounlock time interval, then resetting this value to true after scheduled time
+                // START: If User has set autounlock time interval, then resetting this value to true after scheduled time
             if newValue && unlockInterval > 0 {
                 unlockAfter(interval: unlockInterval)
             } else if unlockInterval > 0 {
                 unlockTimer?.invalidate()
             }
-            // END: If User has set autounlock time interval, then resetting this value to true after scheduled time
+                // END: If User has set autounlock time interval, then resetting this value to true after scheduled time
         }
     }
     
-    // This property is used to Hide/Show the ghostBubble overlay.
-    var disableGhostBubble: Bool = true {
+        // This property is used to Hide/Show the ghostBubble overlay.
+    public var disableGhostBubble: Bool = true {
         willSet {
             lblGhostBuble.isHidden = newValue
         }
     }
     
-    var colorHeating: UIColor {
+    public var colorHeating: UIColor {
         return orientation == .vertical ? SliderStateColor.heatingStateColor : SliderStateColor.coolingStateColor
     }
     
@@ -214,16 +204,16 @@ open class DualSlider: UIControl {
         return orientation == .horizontal ? SliderStateColor.heatingStateColor : SliderStateColor.coolingStateColor
     }
     
-    // MARK: - Slider value change handler
-    // Slider value change handler
-    var sliderValueChangeHandler:((_ heatingVal: Int?, _ coolingVal: Int?, _ isHeatingThumbDragged: Bool?) -> Void)?
+        // MARK: - Slider value change handler
+        // Slider value change handler
+    public var sliderValueChangeHandler:((_ heatingVal: Int?, _ coolingVal: Int?, _ isHeatingThumbDragged: Bool?) -> Void)?
     
-    // Slider value change handler
-    var fanSpeedChangeHandler:((_ currentIndex: Int) -> Void)?
+        // Slider value change handler
+    public var fanSpeedChangeHandler:((_ currentIndex: Int) -> Void)?
     
-    var autoUnlockHandler: ((_ isUnlocked: Bool) -> Void)?
+    public var autoUnlockHandler: ((_ isUnlocked: Bool) -> Void)?
     
-    // MARK: - Initialiser
+        // MARK: - Initialiser
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -243,11 +233,11 @@ open class DualSlider: UIControl {
         self.isLocked = false   // By Default, timer will be unlocked.
     }
     
-    /// Fan Mode Slider Initialisation
-    ///
-    /// - Parameters:
-    ///   - sliderMode: 'Fan' mode
-    ///   - fanSpeed: Set init Speed of Fan
+        /// Fan Mode Slider Initialisation
+        ///
+        /// - Parameters:
+        ///   - sliderMode: 'Fan' mode
+        ///   - fanSpeed: Set init Speed of Fan
     /* func initFanSlider(fanSpeed:FanSpeed = .Medium) {
      
      initCommon(direction: .vertical, sliderMode: .fan, minValue: 0.0, maxValue: 100)
@@ -257,40 +247,40 @@ open class DualSlider: UIControl {
      value = [currentVal]
      } */
     
-    func initFanSliderForModes(fanModes modes: [String], currentSpeedindex: Int) {
+    public func initFanSliderForModes(fanModes modes: [String], currentSpeedindex: Int) {
         arrFanMode = modes.reversed()
         initCommon(direction: .vertical, sliderMode: .fan, minValue: 0.0, maxValue: 100)
         currentFanSpeed = currentSpeedindex > modes.count ? modes.count : currentSpeedindex    // Consider highest value if currentSpeed crosses the max limit
     }
     
-    /// Initialising Slider for Cooling/Heating Mode (Vertical or Horizontal) with Minimum-Maximum and current value
-    ///
-    /// - Parameters:
-    ///   - position: slider Direction - Horizontal or Vertical
-    ///   - sliderMode: Heating/Cooling mode
-    ///   - minValue: Minimum temperature value
-    ///   - maxValue: Maximum temperature value
-    ///   - defaultValue: current temperature value
-    func initSlider(forSliderDirection position: NSLayoutConstraint.Axis, sliderMode: SliderMode, minValue: CGFloat = 0, maxValue: CGFloat = 100, defaultValue: CGFloat = 0, isGeoFencing: Bool = false) {
+        /// Initialising Slider for Cooling/Heating Mode (Vertical or Horizontal) with Minimum-Maximum and current value
+        ///
+        /// - Parameters:
+        ///   - position: slider Direction - Horizontal or Vertical
+        ///   - sliderMode: Heating/Cooling mode
+        ///   - minValue: Minimum temperature value
+        ///   - maxValue: Maximum temperature value
+        ///   - defaultValue: current temperature value
+    public func initSlider(forSliderDirection position: NSLayoutConstraint.Axis, sliderMode: SliderMode, minValue: CGFloat = 0, maxValue: CGFloat = 100, defaultValue: CGFloat = 0, isGeoFencing: Bool = false) {
         
         initCommon(direction: position, sliderMode: sliderMode, minValue: minValue, maxValue: maxValue)
         value = [defaultValue]
         snapStepSize = 1
         self.isGeoFencing = isGeoFencing
-        // Add Ghost Bubble
+            // Add Ghost Bubble
         self.addGhostBubble()
     }
     
-    /// Initialising Auto mode slider
-    ///
-    /// - Parameters:
-    ///   - position: Slider Direction (Horizontal or Vertical)
-    ///   - minValue: Slider MiniMum Value
-    ///   - maxValue: Slider MaxiMum Value
-    ///   - coolingValue: Current Cooling value
-    ///   - heatingValue: Current Heating value
-    ///   - deadBand: Deadband value
-    func initAutoSlider(forSliderDirection position: NSLayoutConstraint.Axis, minValue: CGFloat = 0, maxValue: CGFloat = 100, heatMaxVal: CGFloat = 90, coolMinVal: CGFloat = 52, coolingValue: CGFloat = 0, heatingValue: CGFloat = 0, deadBand: CGFloat) {
+        /// Initialising Auto mode slider
+        ///
+        /// - Parameters:
+        ///   - position: Slider Direction (Horizontal or Vertical)
+        ///   - minValue: Slider MiniMum Value
+        ///   - maxValue: Slider MaxiMum Value
+        ///   - coolingValue: Current Cooling value
+        ///   - heatingValue: Current Heating value
+        ///   - deadBand: Deadband value
+    public func initAutoSlider(forSliderDirection position: NSLayoutConstraint.Axis, minValue: CGFloat = 0, maxValue: CGFloat = 100, heatMaxVal: CGFloat = 90, coolMinVal: CGFloat = 52, coolingValue: CGFloat = 0, heatingValue: CGFloat = 0, deadBand: CGFloat) {
         
         initCommon(direction: position, sliderMode: .auto, minValue: minValue, maxValue: maxValue)
         value = [heatingValue, coolingValue]
@@ -299,17 +289,17 @@ open class DualSlider: UIControl {
         self.heatMaxValue = heatMaxVal
         self.coolMinValue = coolMinVal
         self.deadBand = deadBand
-        // Add Ghost Bubble
+            // Add Ghost Bubble
         self.addGhostBubble()
     }
     
-    // MARK: - DeInit
+        // MARK: - DeInit
     deinit {
         print("Slider deinit")
         unlockTimer?.invalidate()
     }
     
-    // MARK: - Setup
+        // MARK: - Setup
     private func setup() {
         trackView.backgroundColor = .yellow
         slideView.backgroundColor = .purple
@@ -317,7 +307,7 @@ open class DualSlider: UIControl {
         self.valueLabelPosition = .right
         setupOrientation()
         
-        // Add PanGesture and TapGesture to handle dragging and Tapping events on slider
+            // Add PanGesture and TapGesture to handle dragging and Tapping events on slider
         addConstrainedSubview(panGestureView)
         for edge: NSLayoutConstraint.Attribute in [.top, .bottom, .left, .right] {
             constrain(panGestureView, at: edge, diff: -edge.inwardSign * margin)
@@ -342,7 +332,7 @@ open class DualSlider: UIControl {
         _ = orientation == .vertical ? ThumbImageName.verticalImageName : ThumbImageName.horizontalImageName
         self.thumbImage = defaultThumbImage
         
-        // Removing all the subviews and their constraints and adding them again according to orientation
+            // Removing all the subviews and their constraints and adding them again according to orientation
         trackView.removeFromSuperview()
         trackView.removeConstraints(trackView.constraints)
         slideView.removeFromSuperview()
@@ -351,22 +341,22 @@ open class DualSlider: UIControl {
         self.fanStepLayer.removeFromSuperlayer()
         lowerLayer.removeFromSuperlayer()
         upperLayer.removeFromSuperlayer()
-        //        self.lblGhostBuble.removeFromSuperview()
+            //        self.lblGhostBuble.removeFromSuperview()
         thumbViews.forEach({$0.tintColor = sliderMode.color})
         
-        // Calculating the margin of thumbview according to imageSize and added margin accordingly
+            // Calculating the margin of thumbview according to imageSize and added margin accordingly
         let thumbSize = thumbImage?.size ?? CGSize(width: 2, height: 2)
         let thumbDiameter = orientation == .vertical ? thumbSize.height : thumbSize.width
         let halfThumb = thumbDiameter / 2 - 1
         
         switch orientation {
-            
+                
             case .vertical:
-                // Add Track view first with top-bottom and center constraint
+                    // Add Track view first with top-bottom and center constraint
                 addConstrainedSubview(trackView, constrain: .top, .bottom, .centerX)
                 trackView.constrain(.width, to: trackWidth)
                 
-                // Add Slideview in trackview
+                    // Add Slideview in trackview
                 trackView.addConstrainedSubview(slideView, constrain: .left, .right)
                 
                 trackView.constrain(slideView, at: .top, ratio: 1, relation: .equal)
@@ -425,16 +415,16 @@ open class DualSlider: UIControl {
     
     private func lineDashPattern() -> [NSNumber] {
         return [0.4, dotRadius * 1.1667] as [NSNumber]    // 1st parameter will be radius and 2nd will be spacing between two dots
-        // Calculation : Considering 100% length of main layer, 0.4% will get occupied for drawing the dot, the next remaining % will be empty space
-        // e.g. 0.4 will be dot radius, 7 will be the empty space and again 0.4 radius' dot will get drawn and so on...
+                                                          // Calculation : Considering 100% length of main layer, 0.4% will get occupied for drawing the dot, the next remaining % will be empty space
+                                                          // e.g. 0.4 will be dot radius, 7 will be the empty space and again 0.4 radius' dot will get drawn and so on...
     }
-    // MARK: - Draw dotted line
-    /// Draw dotted line between two points
-    ///
-    /// - Parameters:
-    ///   - p0: Starting Point
-    ///   - p1: Ending Point
-    ///   - view: Parent view on which line needs to be drawn
+        // MARK: - Draw dotted line
+        /// Draw dotted line between two points
+        ///
+        /// - Parameters:
+        ///   - p0: Starting Point
+        ///   - p1: Ending Point
+        ///   - view: Parent view on which line needs to be drawn
     private func drawDottedLine(start p0: CGPoint, end p1: CGPoint, view: UIView) {
         
         shapeLayer.strokeColor = sliderMode.color.cgColor
@@ -456,14 +446,14 @@ open class DualSlider: UIControl {
             shapeLayer.path = path
             view.layer.addSublayer(shapeLayer)
             
-            // START : For Fan Mode, adding another layer for displaying Fan Speed points at calculated interval
+                // START : For Fan Mode, adding another layer for displaying Fan Speed points at calculated interval
             if sliderMode == .fan {
                 let totalSize = p1.y - p0.y
-                // START : Calculate stepSize according to number of modes
+                    // START : Calculate stepSize according to number of modes
                 let length = (totalSize / CGFloat(arrFanMode.count - 1)) // This length will be the gap between two modes.
                 let dotDiameter = (length * 0.01)   // To add dot at starting position of gap, 1% area will draw the dot
                 let spaceDiameter = (length * 0.98) // After adding the dot, remaining path will have empty space. Considering only 99% of available space because the same process will get applied for the next mode (1st space will be occupied for dot and remaining will be for empty space)
-                // END : Calculate stepSize according to number of modes
+                                                    // END : Calculate stepSize according to number of modes
                 
                 fanStepLayer.strokeColor = fanStepColor
                 fanStepLayer.lineWidth = CGFloat(dot.floatValue * 1.5)
@@ -474,7 +464,7 @@ open class DualSlider: UIControl {
                 fanStepLayer.path = pathDot
                 shapeLayer.addSublayer(fanStepLayer)
             }
-            // END : For Fan Mode, adding another layer for displaying Fan Speed points at calculated interval
+                // END : For Fan Mode, adding another layer for displaying Fan Speed points at calculated interval
         }
     }
     
@@ -490,9 +480,9 @@ open class DualSlider: UIControl {
         let gapSize = (dot.floatValue * 1.1667) + 0.4
         let extraPix = totalSize.remainder(dividingBy: CGFloat(gapSize))
         
-        // Reducing 0.5px width extra for handling layer alignment in Horizontal direction.
+            // Reducing 0.5px width extra for handling layer alignment in Horizontal direction.
         let lowerStartPoint = orientation == .horizontal ? CGPoint(x: endPoint.x - CGFloat(extraPix - 0.5), y: endPoint.y) :
-            CGPoint(x: endPoint.x, y: endPoint.y - CGFloat(extraPix - 0.5))
+        CGPoint(x: endPoint.x, y: endPoint.y - CGFloat(extraPix - 0.5))
         let path = CGMutablePath()
         path.addLines(between: [lowerStartPoint, start])
         lowerLayer.path = path
@@ -510,7 +500,7 @@ open class DualSlider: UIControl {
         view.layer.addSublayer(upperLayer)
     }
     
-    // MARK: - Render slideview components
+        // MARK: - Render slideview components
     private func addThumbView() {
         let i = thumbViews.count
         let thumbView = UIImageView(image: thumbImage)
@@ -581,8 +571,8 @@ open class DualSlider: UIControl {
         addSubview(lblGhostBuble)
     }
     
-    // MARK: - Update Values
-    func updateSliderValues(currentCoolVal: CGFloat, currentHeatVal: CGFloat, deadBand: CGFloat) {
+        // MARK: - Update Values
+    public func updateSliderValues(currentCoolVal: CGFloat, currentHeatVal: CGFloat, deadBand: CGFloat) {
         if sliderMode == .auto && value.count > 1 {
             self.deadBand = deadBand
             value[0] = currentHeatVal
@@ -659,11 +649,11 @@ open class DualSlider: UIControl {
         }
     }
     
-    /// change current value and update thumb according to new value
-    ///
-    /// - Parameters:
-    ///   - newValue: new value
-    ///   - type: type of slider (cooling or heating)
+        /// change current value and update thumb according to new value
+        ///
+        /// - Parameters:
+        ///   - newValue: new value
+        ///   - type: type of slider (cooling or heating)
     private func changeCurrentValue(newValue: CGFloat, type: SliderMode) {
         if sliderMode == .auto {
             let currentIndex = type == .heating ? 0 : 1
@@ -721,7 +711,7 @@ open class DualSlider: UIControl {
         adjustThumbCountToValueCount()
     }
     
-    /// Add/Remove thumbs from superview according to available values in 'value' array
+        /// Add/Remove thumbs from superview according to available values in 'value' array
     private func adjustThumbCountToValueCount() {
         if value.count == thumbViews.count {
             return
@@ -735,16 +725,16 @@ open class DualSlider: UIControl {
         }
     }
     
-    /// Auto unlocking slider after specified timeinterval. If Time Interval is 0, slider won't get enabled automatically
-    ///
-    /// - Parameter seconds: timeinterval after which slider will be auto unlocked
-    func setEnabledAutoUnlock(seconds: Double) {
+        /// Auto unlocking slider after specified timeinterval. If Time Interval is 0, slider won't get enabled automatically
+        ///
+        /// - Parameter seconds: timeinterval after which slider will be auto unlocked
+    public func setEnabledAutoUnlock(seconds: Double) {
         unlockInterval = seconds
     }
     
-    /// Auto unlocking slider after mentioned time interval
-    ///
-    /// - Parameter seconds: Seconds after which timer operation will get executed
+        /// Auto unlocking slider after mentioned time interval
+        ///
+        /// - Parameter seconds: Seconds after which timer operation will get executed
     private func unlockAfter(interval seconds: Double) {
         unlockTimer = Timer.scheduledTimer(withTimeInterval: seconds, repeats: false) { [weak self] (timer) in
             self?.isLocked = false
@@ -753,10 +743,10 @@ open class DualSlider: UIControl {
         }
     }
     
-    /// Updating Thumb bubble value according to dragged/tapped
-    ///
-    /// - Parameter thumbIndex: Index of thumbview which needs to be updated
-    func updateValueLabel(_ thumbIndex: Int) {
+        /// Updating Thumb bubble value according to dragged/tapped
+        ///
+        /// - Parameter thumbIndex: Index of thumbview which needs to be updated
+    public func updateValueLabel(_ thumbIndex: Int) {
         let labelValue: CGFloat
         labelValue = value[thumbIndex]
         if sliderMode == .fan {
@@ -775,19 +765,19 @@ open class DualSlider: UIControl {
             }
         }
         
-        // START: Calculate height/width (For Horizontal orientation, consider Height and For Vertical, consider Width) based on the text and render the UI accordingly
+            // START: Calculate height/width (For Horizontal orientation, consider Height and For Vertical, consider Width) based on the text and render the UI accordingly
         if orientation == .horizontal {
-            // Calculate height based on the text and render the UI accordingly
+                // Calculate height based on the text and render the UI accordingly
             let height = max(valueLabels[thumbIndex].text!.widthOfString(usingFont: valueLabels[thumbIndex].font!), 30)
             thumbViews[thumbIndex].constrain(.width, to: height + 10, ratio: 1, relation: .equal)
         } else {
             let width = max(valueLabels[thumbIndex].text!.widthOfString(usingFont: valueLabels[thumbIndex].font!), 20)
             thumbViews[thumbIndex].constrain(.width, to: width + 30, ratio: 1, relation: .equal)
         }
-        // END: Calculate height/width (For Horizontal orientation, consider Height and For Vertical, consider Width) based on the text and render the UI accordingly
+            // END: Calculate height/width (For Horizontal orientation, consider Height and For Vertical, consider Width) based on the text and render the UI accordingly
     }
     
-    /// Updating value according to snapstep size (Rounding up the value)
+        /// Updating value according to snapstep size (Rounding up the value)
     private func adjustValuesToStepAndLimits() {
         var adjusted = value //.sorted()
         for i in 0 ..< adjusted.count {
@@ -804,18 +794,18 @@ open class DualSlider: UIControl {
         }
     }
     
-    /// Updating the thumbview position while dragging/tapping
-    ///
-    /// - Parameter index: index of the thumbview which needs to be repositioned
-    func positionThumbView(_ index: Int) {
+        /// Updating the thumbview position while dragging/tapping
+        ///
+        /// - Parameter index: index of the thumbview which needs to be repositioned
+    public func positionThumbView(_ index: Int) {
         
         let thumbView = thumbViews[index]
         let thumbValue = value[index]
         slideView.removeFirstConstraint { $0.firstItem === thumbView && $0.firstAttribute == .center(in: orientation) }
         
-        // Calculate the percentage of position for thumbValue
+            // Calculate the percentage of position for thumbValue
         let thumbRelativeDistanceToMax = (maximumValue - thumbValue) / (maximumValue - minimumValue)
-        // START : Update Constraint according to orientation and calculated distance
+            // START : Update Constraint according to orientation and calculated distance
         if orientation == .horizontal {
             if thumbRelativeDistanceToMax < 1 {
                 if deadBand == 0 {
@@ -839,9 +829,9 @@ open class DualSlider: UIControl {
                 slideView.constrain(thumbView, at: .centerY, to: slideView, at: .top)
             }
         }
-        // END : Update Constraint according to orientation and calculated distance
+            // END : Update Constraint according to orientation and calculated distance
         
-        // updating layer position according to drag direction.
+            // updating layer position according to drag direction.
         if sliderMode == .auto {
             self.drawStrokeForAutoSlider(atIndex: index)
         }
@@ -849,16 +839,16 @@ open class DualSlider: UIControl {
         updateGhostBubble()
     }
     
-    /// update bubble position based on selected dragging thumb
+        /// update bubble position based on selected dragging thumb
     private func updateGhostBubble() {
         
-        // Positioning the ghost bubble for the thumb which is currently getting dragged.
-        // i.e. If lower thumb is dragged, then ghostbubble for it will get displayed
+            // Positioning the ghost bubble for the thumb which is currently getting dragged.
+            // i.e. If lower thumb is dragged, then ghostbubble for it will get displayed
         if thumbViews.count > draggedThumbIndex && draggedThumbIndex >= 0 {
             let selectedThumb = thumbViews[draggedThumbIndex]
             
-            // Getting Bubble center position based on Slider Orientation. For Vertical Orientation, considering track view's center and width to align bubble beside track view.
-            // For Horizontal orientation, considering trackview center's y position and updating Ghostbubble's y-pos.
+                // Getting Bubble center position based on Slider Orientation. For Vertical Orientation, considering track view's center and width to align bubble beside track view.
+                // For Horizontal orientation, considering trackview center's y position and updating Ghostbubble's y-pos.
             let bubbleLoc = orientation == .vertical ? CGPoint(x: trackView.center.x - (selectedThumb.frame.width + lblGhostBuble.frame.width), y: selectedThumb.center.y + (self.lblGhostBuble.frame.width / 4) - 40) : CGPoint(x: selectedThumb.center.x + (self.lblGhostBuble.frame.width / 4), y: trackView.center.y - (selectedThumb.frame.height + (lblGhostBuble.frame.height * 1.25)))
             
             lblGhostBuble.backgroundColor = selectedThumb.tintColor
@@ -872,16 +862,16 @@ open class DualSlider: UIControl {
         }
     }
     
-    /// Render Autoslider layers according to index
-    ///
-    /// - Parameter index: index of layer
-    func drawStrokeForAutoSlider(atIndex index: Int) {
+        /// Render Autoslider layers according to index
+        ///
+        /// - Parameter index: index of layer
+    public func drawStrokeForAutoSlider(atIndex index: Int) {
         
-        // Disable stroke-end transition
+            // Disable stroke-end transition
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         
-        // Draw layer according to thumbIndex (Upper or Lower thumb) and direction
+            // Draw layer according to thumbIndex (Upper or Lower thumb) and direction
         if index == 0 {
             if orientation == .horizontal {
                 upperLayer.strokeEnd = 1 - (maximumValue - (value[index])) / (maximumValue - minimumValue)//((value[i]) / maximumValue)
@@ -896,11 +886,11 @@ open class DualSlider: UIControl {
             }
         }
         
-        // Disable stroke-end transition
+            // Disable stroke-end transition
         CATransaction.commit()
     }
     
-    // MARK: - Override
+        // MARK: - Override
     open override var intrinsicContentSize: CGSize {
         let thumbSize = (defaultThumbImage)?.size ?? CGSize(width: margin, height: margin)
         switch orientation {
