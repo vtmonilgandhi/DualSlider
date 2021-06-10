@@ -5,6 +5,7 @@ A cocoapod library for dual slider written in swift
 [![Version](https://img.shields.io/cocoapods/v/DualSlider.svg?style=flat)](https://cocoapods.org/pods/DualSlider)
 [![License](https://img.shields.io/cocoapods/l/DualSlider.svg?style=flat)](https://cocoapods.org/pods/DualSlider)
 [![Platform](https://img.shields.io/cocoapods/p/DualSlider.svg?style=flat)](https://cocoapods.org/pods/DualSlider)
+[![Swift] (5)
 
 ## Example
 
