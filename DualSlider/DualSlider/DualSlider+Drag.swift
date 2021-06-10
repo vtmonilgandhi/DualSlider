@@ -124,7 +124,7 @@ extension DualSlider: UIGestureRecognizerDelegate {
     ///   - targetPosition: position at which thumb to be moved
     ///   - stepSizeInView: stepsize in pixels
     /// - Returns: targetposition's new value
-    func boundedDraggedThumbPosition(targetPosition: CGFloat, stepSizeInView: CGFloat) -> CGFloat {
+    public func boundedDraggedThumbPosition(targetPosition: CGFloat, stepSizeInView: CGFloat) -> CGFloat {
         
         var delta = snapStepSize > 0 ? stepSizeInView : thumbViews[draggedThumbIndex].frame.size(in: orientation) / 2
         
@@ -177,7 +177,7 @@ extension DualSlider: UIGestureRecognizerDelegate {
         updateThumbViewsAccordingToDeadBand()
     }
     
-    func updateThumbViewsAccordingToDeadBand() {
+    public func updateThumbViewsAccordingToDeadBand() {
         if sliderMode == .auto && value.count > 1 {
             if orientation == .vertical {
                 // Moving thumb position according to new heating or cooling value.

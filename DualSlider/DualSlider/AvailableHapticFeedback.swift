@@ -32,7 +32,7 @@ public class AvailableHapticFeedback {
     }
     
     @available(iOS 10.0, *)
-    var feedbackGenerator: UIFeedbackGenerator & AvailableHapticFeedbackGenerator {
+    public var feedbackGenerator: UIFeedbackGenerator & AvailableHapticFeedbackGenerator {
         if nil == _anyFeedbackGenerator {
             createFeedbackGenerator()
         }
@@ -66,21 +66,21 @@ protocol AvailableHapticFeedbackGenerator {
 
 @available(iOS 10.0, *)
 extension UISelectionFeedbackGenerator: AvailableHapticFeedbackGenerator {
-    func generate(style: AvailableHapticFeedback.Style) {
+    public func generate(style: AvailableHapticFeedback.Style) {
         selectionChanged()
     }
 }
 
 @available(iOS 10.0, *)
 extension UIImpactFeedbackGenerator: AvailableHapticFeedbackGenerator {
-    func generate(style: AvailableHapticFeedback.Style) {
+    public func generate(style: AvailableHapticFeedback.Style) {
         impactOccurred()
     }
 }
 
 @available(iOS 10.0, *)
 extension UINotificationFeedbackGenerator: AvailableHapticFeedbackGenerator {
-    func generate(style: AvailableHapticFeedback.Style) {
+    public func generate(style: AvailableHapticFeedback.Style) {
         let notificationFeedbackType: UINotificationFeedbackGenerator.FeedbackType
         switch style {
             case .notificationWarning:

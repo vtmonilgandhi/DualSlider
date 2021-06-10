@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-enum SliderMode: String {
+public enum SliderMode: String {
     case heating = "Heating"
     case cooling = "Cooling"
     case fan = "Fan Only"
@@ -10,7 +10,7 @@ enum SliderMode: String {
     case off = "Off"
     case geoFencing = "Geo Fencing"
     
-    var color: UIColor {
+    public var color: UIColor {
         switch self {
             case .heating:
                 return SliderStateColor.heatingStateColor
@@ -31,7 +31,7 @@ enum SliderMode: String {
     }
 }
 
-struct SliderStateColor {
+public struct SliderStateColor {
     static let heatingStateColor = UIColor.orange
     static let coolingStateColor = UIColor.red
     static let disabledStateColor = UIColor.gray
@@ -42,7 +42,7 @@ struct SliderStateColor {
     static let geoFencingColor = UIColor.white
 }
 
-struct ThumbImageName {
+public struct ThumbImageName {
     static let verticalImageName = "bubble_vertical"
     static let horizontalImageName = "bubble_horizontal"
 }
