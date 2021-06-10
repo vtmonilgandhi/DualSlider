@@ -14,6 +14,6 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = "13.0"
   spec.swift_version         = "5.5"
   spec.source                = { :git => "https://github.com/vtmonilgandhi/DualSlider.git", :tag => "0.0.3" }
-  spec.source_files          = "DualSlider/**/*"
+  spec.source_files          = "DualSlider/**/*.{h,m}"
 
 end
