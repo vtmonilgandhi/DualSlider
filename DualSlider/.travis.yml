@@ -1,6 +1,6 @@
 language: swift
 
-osx_image: xcode13.0 beta
+osx_image: xcode12.5
 env:
   matrix:
     - TEST_SDK=iphonesimulator14.4 OS=14.4 NAME='iPhone 12 Pro Max'
