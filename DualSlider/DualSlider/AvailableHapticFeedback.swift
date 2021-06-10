@@ -41,10 +41,10 @@ open class AvailableHapticFeedback {
         // swiftlint:enable force_cast force_unwrapping
     }
     
-    private var _anyFeedbackGenerator: Any?
+    public var _anyFeedbackGenerator: Any?
     
     @available(iOS 10.0, *)
-    private func createFeedbackGenerator() {
+    public func createFeedbackGenerator() {
         switch style {
             case .selection:
                 _anyFeedbackGenerator = UISelectionFeedbackGenerator()

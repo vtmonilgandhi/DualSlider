@@ -3,36 +3,36 @@ import UIKit
 open class DualSlider: UIControl {
     
         // MARK: - Variables
-    private var thumbViews: [UIImageView] = []
-    private var valueLabels: [UITextField] = [] // UILabels are a pain to layout, text fields look nice as-is.
-    private var trackView = UIView()
-    private var lblGhostBuble = UILabel()
+    public var thumbViews: [UIImageView] = []
+    public var valueLabels: [UITextField] = [] // UILabels are a pain to layout, text fields look nice as-is.
+    public var trackView = UIView()
+    public var lblGhostBuble = UILabel()
     public var isGeoFencing = false
-    private let slideView = UIView()
-    private let panGestureView = UIView()
+    public let slideView = UIView()
+    public let panGestureView = UIView()
     
-    private var shapeLayer = CAShapeLayer()
-    private var fanStepLayer = CAShapeLayer()
+    public var shapeLayer = CAShapeLayer()
+    public var fanStepLayer = CAShapeLayer()
     
         //Upper and lower layer for auto slider (red and blue color layer)
-    private var lowerLayer = CAShapeLayer()
-    private var upperLayer = CAShapeLayer()
+    public var lowerLayer = CAShapeLayer()
+    public var upperLayer = CAShapeLayer()
     
         /// Settings Variables
-    private var dotRadius: Float = 6
-    private let margin: CGFloat = 32
-    private var isSettingValue = false
-    private var draggedThumbIndex: Int = -1
+    public var dotRadius: Float = 6
+    public let margin: CGFloat = 32
+    public var isSettingValue = false
+    public var draggedThumbIndex: Int = -1
     public var sliderMode: SliderMode = .cooling
     public var arrFanMode: [String] = []
     public var fanStepColor: CGColor = SliderStateColor.fanStepColor.cgColor
     public var geoFencingUnit = "Miles"
-    private var unlockInterval: Double = 0
-    private weak var unlockTimer: Timer?
+    public var unlockInterval: Double = 0
+    public weak var unlockTimer: Timer?
     lazy var defaultThumbImage: UIImage? = .circle()
         /// generate haptic feedback when hitting snap steps
     public var isHapticSnap: Bool = true
-    private var selectionFeedbackGenerator = AvailableHapticFeedback()
+    public var selectionFeedbackGenerator = AvailableHapticFeedback()
     
         // MARK: - Computed properties
     public var thumbCount: Int {
@@ -127,7 +127,7 @@ open class DualSlider: UIControl {
     }
     
         /// show value labels next to thumbs. (default: show no label)
-    private var valueLabelPosition: NSLayoutConstraint.Attribute = .notAnAttribute {
+    public var valueLabelPosition: NSLayoutConstraint.Attribute = .notAnAttribute {
         didSet {
             valueLabels.removeViewsStartingAt(0)
             if valueLabelPosition != .notAnAttribute {
@@ -224,7 +224,7 @@ open class DualSlider: UIControl {
         setup()
     }
     
-    private func initCommon(direction: NSLayoutConstraint.Axis, sliderMode: SliderMode, minValue: CGFloat, maxValue: CGFloat) {
+    public func initCommon(direction: NSLayoutConstraint.Axis, sliderMode: SliderMode, minValue: CGFloat, maxValue: CGFloat) {
         setup()
         self.sliderMode = sliderMode
         orientation = direction
@@ -300,7 +300,7 @@ open class DualSlider: UIControl {
     }
     
         // MARK: - Setup
-    private func setup() {
+    public func setup() {
         trackView.backgroundColor = .yellow
         slideView.backgroundColor = .purple
         slideView.layoutMargins = .zero
@@ -316,18 +316,18 @@ open class DualSlider: UIControl {
         setupTapGesture()
     }
     
-    private func setupTapGesture() {
+    public func setupTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGesture(_:)))
         tapGesture.numberOfTapsRequired = 1
         panGestureView.addGestureRecognizer(tapGesture)
     }
     
-    private func setupPanGesture() {
+    public func setupPanGesture() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didDrag(_:)))
         panGestureView.addGestureRecognizer(panGesture)
     }
     
-    private func setupOrientation() {
+    public func setupOrientation() {
         
         _ = orientation == .vertical ? ThumbImageName.verticalImageName : ThumbImageName.horizontalImageName
         self.thumbImage = defaultThumbImage
@@ -386,7 +386,7 @@ open class DualSlider: UIControl {
         setupTrackLayoutMargins()
     }
     
-    private func setupTrackLayoutMargins() {
+    public func setupTrackLayoutMargins() {
         let thumbSize = thumbImage?.size ?? CGSize(width: 2, height: 2)
         let thumbDiameter = orientation == .vertical ? thumbSize.height : thumbSize.width
         let halfThumb = thumbDiameter / 2 - 3 // 1 pixel for semi-transparent boundary
@@ -413,7 +413,7 @@ open class DualSlider: UIControl {
         }
     }
     
-    private func lineDashPattern() -> [NSNumber] {
+    public func lineDashPattern() -> [NSNumber] {
         return [0.4, dotRadius * 1.1667] as [NSNumber]    // 1st parameter will be radius and 2nd will be spacing between two dots
                                                           // Calculation : Considering 100% length of main layer, 0.4% will get occupied for drawing the dot, the next remaining % will be empty space
                                                           // e.g. 0.4 will be dot radius, 7 will be the empty space and again 0.4 radius' dot will get drawn and so on...
@@ -425,7 +425,7 @@ open class DualSlider: UIControl {
         ///   - p0: Starting Point
         ///   - p1: Ending Point
         ///   - view: Parent view on which line needs to be drawn
-    private func drawDottedLine(start p0: CGPoint, end p1: CGPoint, view: UIView) {
+    public func drawDottedLine(start p0: CGPoint, end p1: CGPoint, view: UIView) {
         
         shapeLayer.strokeColor = sliderMode.color.cgColor
         
@@ -468,7 +468,7 @@ open class DualSlider: UIControl {
         }
     }
     
-    private func addAutoColorLayer(view: UIView, start: CGPoint, endPoint: CGPoint) {
+    public func addAutoColorLayer(view: UIView, start: CGPoint, endPoint: CGPoint) {
         
         let dot: NSNumber = NSNumber(value: dotRadius)
         lowerLayer.lineWidth = CGFloat(dot.floatValue)
@@ -501,7 +501,7 @@ open class DualSlider: UIControl {
     }
     
         // MARK: - Render slideview components
-    private func addThumbView() {
+    public func addThumbView() {
         let i = thumbViews.count
         let thumbView = UIImageView(image: thumbImage)
         thumbViews.append(thumbView)
@@ -532,7 +532,7 @@ open class DualSlider: UIControl {
         addValueLabel(i)
     }
     
-    private func addValueLabel(_ i: Int) {
+    public func addValueLabel(_ i: Int) {
         
         guard valueLabelPosition != .notAnAttribute else { return }
         let valueLabel = UITextField()
@@ -558,7 +558,7 @@ open class DualSlider: UIControl {
         updateValueLabel(i)
     }
     
-    private func addGhostBubble() {
+    public func addGhostBubble() {
         lblGhostBuble.frame = .init(x: 0, y: 0, width: 50, height: 50)
         lblGhostBuble.backgroundColor = self.sliderMode.color
         lblGhostBuble.textColor = .white
@@ -580,7 +580,7 @@ open class DualSlider: UIControl {
         }
     }
     
-    private func updateHeating(newValue: Int) {
+    public func updateHeating(newValue: Int) {
         if (sliderMode == .auto) {
             let floatVal = CGFloat(newValue)
             if floatVal <= minimumValue {
@@ -615,7 +615,7 @@ open class DualSlider: UIControl {
         }
     }
     
-    private func updateCooling(newValue: Int) {
+    public func updateCooling(newValue: Int) {
         if (sliderMode == .auto) {
             let floatVal = CGFloat(newValue)
             if floatVal >= maximumValue {
@@ -654,7 +654,7 @@ open class DualSlider: UIControl {
         /// - Parameters:
         ///   - newValue: new value
         ///   - type: type of slider (cooling or heating)
-    private func changeCurrentValue(newValue: CGFloat, type: SliderMode) {
+    public func changeCurrentValue(newValue: CGFloat, type: SliderMode) {
         if sliderMode == .auto {
             let currentIndex = type == .heating ? 0 : 1
             if newValue <= minimumValue && type == .heating { // For heating bottom thumb limit, New value not less then minimum value
@@ -703,7 +703,7 @@ open class DualSlider: UIControl {
         }
     }
     
-    private func repositionThumbViews() {
+    public func repositionThumbViews() {
         thumbViews.forEach { $0.removeFromSuperview() }
         thumbViews = []
         valueLabels.forEach { $0.removeFromSuperview() }
@@ -712,7 +712,7 @@ open class DualSlider: UIControl {
     }
     
         /// Add/Remove thumbs from superview according to available values in 'value' array
-    private func adjustThumbCountToValueCount() {
+    public func adjustThumbCountToValueCount() {
         if value.count == thumbViews.count {
             return
         } else if value.count < thumbViews.count {
@@ -735,7 +735,7 @@ open class DualSlider: UIControl {
         /// Auto unlocking slider after mentioned time interval
         ///
         /// - Parameter seconds: Seconds after which timer operation will get executed
-    private func unlockAfter(interval seconds: Double) {
+    public func unlockAfter(interval seconds: Double) {
         unlockTimer = Timer.scheduledTimer(withTimeInterval: seconds, repeats: false) { [weak self] (timer) in
             self?.isLocked = false
             timer.invalidate()
@@ -778,7 +778,7 @@ open class DualSlider: UIControl {
     }
     
         /// Updating value according to snapstep size (Rounding up the value)
-    private func adjustValuesToStepAndLimits() {
+    public func adjustValuesToStepAndLimits() {
         var adjusted = value //.sorted()
         for i in 0 ..< adjusted.count {
             let snapped = adjusted[i].rounded(snapStepSize)
@@ -840,7 +840,7 @@ open class DualSlider: UIControl {
     }
     
         /// update bubble position based on selected dragging thumb
-    private func updateGhostBubble() {
+    public func updateGhostBubble() {
         
             // Positioning the ghost bubble for the thumb which is currently getting dragged.
             // i.e. If lower thumb is dragged, then ghostbubble for it will get displayed
