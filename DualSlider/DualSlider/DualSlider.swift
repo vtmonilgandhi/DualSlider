@@ -1,6 +1,6 @@
 import UIKit
 
-open class DualSlider: UIControl {
+public class DualSlider: UIControl {
     
         // MARK: - Variables
     public var thumbViews: [UIImageView] = []
@@ -891,7 +891,7 @@ open class DualSlider: UIControl {
     }
     
         // MARK: - Override
-    open override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         let thumbSize = (defaultThumbImage)?.size ?? CGSize(width: margin, height: margin)
         switch orientation {
             case .vertical:
@@ -903,7 +903,7 @@ open class DualSlider: UIControl {
         }
     }
     
-    open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         if isHidden || alpha == 0 { return nil }
         if clipsToBounds { return super.hitTest(point, with: event) }
         return panGestureView.hitTest(panGestureView.convert(point, from: self), with: event)

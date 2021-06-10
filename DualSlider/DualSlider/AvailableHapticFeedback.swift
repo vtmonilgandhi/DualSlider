@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 /// Wrapper for UIFeedbackGenerator that compiles on iOS 9
-open class AvailableHapticFeedback {
+public class AvailableHapticFeedback {
     public enum Style: CaseIterable {
         case selection
         case impactLight, impactMedium, impactHeavy
@@ -15,19 +15,19 @@ open class AvailableHapticFeedback {
         self.style = style
     }
     
-    open func prepare() {
+    public func prepare() {
         if #available(iOS 10.0, *) {
             feedbackGenerator.prepare()
         }
     }
     
-    open func generateFeedback() {
+    public func generateFeedback() {
         if #available(iOS 10.0, *) {
             feedbackGenerator.generate(style: style)
         }
     }
     
-    open func end() {
+    public func end() {
         _anyFeedbackGenerator = nil
     }
     

@@ -5,7 +5,7 @@ extension DualSlider: UIGestureRecognizerDelegate {
         return true
     }
     
-    @objc open func didDrag(_ panGesture: UIPanGestureRecognizer) {
+    @objc public func didDrag(_ panGesture: UIPanGestureRecognizer) {
         switch panGesture.state {
             
             case .began:
@@ -58,7 +58,7 @@ extension DualSlider: UIGestureRecognizerDelegate {
     }
     
     // MARK: - Tap Gesture Handler
-    @objc open func tapGesture(_ tapGesture: UITapGestureRecognizer) {
+    @objc public func tapGesture(_ tapGesture: UITapGestureRecognizer) {
         
         if isHapticSnap { selectionFeedbackGenerator.prepare() }
         
