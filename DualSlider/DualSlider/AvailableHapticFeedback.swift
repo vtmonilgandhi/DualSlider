@@ -32,7 +32,7 @@ public class AvailableHapticFeedback {
     }
     
     @available(iOS 10.0, *)
-    public var feedbackGenerator: UIFeedbackGenerator & AvailableHapticFeedbackGenerator {
+    var feedbackGenerator: UIFeedbackGenerator & AvailableHapticFeedbackGenerator {
         if nil == _anyFeedbackGenerator {
             createFeedbackGenerator()
         }
@@ -61,7 +61,7 @@ public class AvailableHapticFeedback {
 }
 
 protocol AvailableHapticFeedbackGenerator {
-    public func generate(style: AvailableHapticFeedback.Style)
+    func generate(style: AvailableHapticFeedback.Style)
 }
 
 @available(iOS 10.0, *)
