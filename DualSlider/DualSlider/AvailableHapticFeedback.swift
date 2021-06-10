@@ -61,7 +61,7 @@ public class AvailableHapticFeedback {
 }
 
 protocol AvailableHapticFeedbackGenerator {
-    func generate(style: AvailableHapticFeedback.Style)
+    public func generate(style: AvailableHapticFeedback.Style)
 }
 
 @available(iOS 10.0, *)
