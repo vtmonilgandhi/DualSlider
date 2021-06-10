@@ -1,6 +1,6 @@
 import UIKit
 
-open class RheemSlider: UIControl {
+open class DualSlider: UIControl {
     
     // MARK: - Variables
     var thumbViews: [UIImageView] = []

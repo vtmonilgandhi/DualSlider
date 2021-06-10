@@ -18,10 +18,10 @@
 		EA87433D2671CF30009FC128 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA87433C2671CF30009FC128 /* Assets.xcassets */; };
 		EA8743402671CF30009FC128 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA87433E2671CF30009FC128 /* LaunchScreen.storyboard */; };
 		EA87434C2671D383009FC128 /* AvailableHapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8743452671D383009FC128 /* AvailableHapticFeedback.swift */; };
-		EA87434D2671D383009FC128 /* RheemSliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8743462671D383009FC128 /* RheemSliderExtensions.swift */; };
-		EA87434F2671D383009FC128 /* RheemSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8743482671D383009FC128 /* RheemSlider.swift */; };
-		EA8743502671D383009FC128 /* RheemSliderConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8743492671D383009FC128 /* RheemSliderConstant.swift */; };
-		EA8743512671D383009FC128 /* RheemSlider+Drag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA87434A2671D383009FC128 /* RheemSlider+Drag.swift */; };
+		EA87434D2671D383009FC128 /* DualSliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8743462671D383009FC128 /* DualSliderExtensions.swift */; };
+		EA87434F2671D383009FC128 /* DualSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8743482671D383009FC128 /* DualSlider.swift */; };
+		EA8743502671D383009FC128 /* DualSliderConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8743492671D383009FC128 /* DualSliderConstant.swift */; };
+		EA8743512671D383009FC128 /* DualSlider+Drag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA87434A2671D383009FC128 /* DualSlider+Drag.swift */; };
 		EA8743522671D383009FC128 /* MiniLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA87434B2671D383009FC128 /* MiniLayout.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,10 +50,10 @@
 		EA87433F2671CF30009FC128 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA8743412671CF30009FC128 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA8743452671D383009FC128 /* AvailableHapticFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableHapticFeedback.swift; sourceTree = "<group>"; };
-		EA8743462671D383009FC128 /* RheemSliderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RheemSliderExtensions.swift; sourceTree = "<group>"; };
-		EA8743482671D383009FC128 /* RheemSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RheemSlider.swift; sourceTree = "<group>"; };
-		EA8743492671D383009FC128 /* RheemSliderConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RheemSliderConstant.swift; sourceTree = "<group>"; };
-		EA87434A2671D383009FC128 /* RheemSlider+Drag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RheemSlider+Drag.swift"; sourceTree = "<group>"; };
+		EA8743462671D383009FC128 /* DualSliderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DualSliderExtensions.swift; sourceTree = "<group>"; };
+		EA8743482671D383009FC128 /* DualSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DualSlider.swift; sourceTree = "<group>"; };
+		EA8743492671D383009FC128 /* DualSliderConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DualSliderConstant.swift; sourceTree = "<group>"; };
+		EA87434A2671D383009FC128 /* DualSlider+Drag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DualSlider+Drag.swift"; sourceTree = "<group>"; };
 		EA87434B2671D383009FC128 /* MiniLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,10 +108,10 @@
 			children = (
 				EA8743452671D383009FC128 /* AvailableHapticFeedback.swift */,
 				EA87434B2671D383009FC128 /* MiniLayout.swift */,
-				EA8743482671D383009FC128 /* RheemSlider.swift */,
-				EA87434A2671D383009FC128 /* RheemSlider+Drag.swift */,
-				EA8743492671D383009FC128 /* RheemSliderConstant.swift */,
-				EA8743462671D383009FC128 /* RheemSliderExtensions.swift */,
+				EA8743482671D383009FC128 /* DualSlider.swift */,
+				EA87434A2671D383009FC128 /* DualSlider+Drag.swift */,
+				EA8743492671D383009FC128 /* DualSliderConstant.swift */,
+				EA8743462671D383009FC128 /* DualSliderExtensions.swift */,
 				EA8743162671CED1009FC128 /* DualSlider.h */,
 				EA8743172671CED1009FC128 /* DualSlider.docc */,
 			);
@@ -280,12 +280,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA8743512671D383009FC128 /* RheemSlider+Drag.swift in Sources */,
-				EA87434D2671D383009FC128 /* RheemSliderExtensions.swift in Sources */,
+				EA8743512671D383009FC128 /* DualSlider+Drag.swift in Sources */,
+				EA87434D2671D383009FC128 /* DualSliderExtensions.swift in Sources */,
 				EA8743182671CED1009FC128 /* DualSlider.docc in Sources */,
 				EA87434C2671D383009FC128 /* AvailableHapticFeedback.swift in Sources */,
-				EA87434F2671D383009FC128 /* RheemSlider.swift in Sources */,
-				EA8743502671D383009FC128 /* RheemSliderConstant.swift in Sources */,
+				EA87434F2671D383009FC128 /* DualSlider.swift in Sources */,
+				EA8743502671D383009FC128 /* DualSliderConstant.swift in Sources */,
 				EA8743522671D383009FC128 /* MiniLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

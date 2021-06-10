@@ -1,6 +1,6 @@
 import UIKit
 
-extension RheemSlider: UIGestureRecognizerDelegate {
+extension DualSlider: UIGestureRecognizerDelegate {
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
