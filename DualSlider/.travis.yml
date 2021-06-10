@@ -1,0 +1,9 @@
+language: swift
+
+osx_image: xcode13.0 beta
+env:
+  matrix:
+    - TEST_SDK=iphonesimulator14.4 OS=14.4 NAME='iPhone 12 Pro Max'
+
+script:
+  - set -o pipefail && xcodebuild test -enableCodeCoverage YES -project SwiftyLib.xcodeproj -scheme SwiftyLib -sdk $TEST_SDK -destination "platform=iOS Simulator,OS=$OS,name=$NAME" ONLY_ACTIVE_ARCH=YES
