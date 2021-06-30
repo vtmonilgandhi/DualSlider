@@ -4,7 +4,7 @@
 target 'DualSliderExample' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-	pod 'DualSlider'
+	pod 'DualSlider', '0.0.7'
   # Pods for DualSliderExample
 
 end

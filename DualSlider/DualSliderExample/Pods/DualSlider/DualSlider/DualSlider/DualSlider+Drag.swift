@@ -5,7 +5,7 @@ extension DualSlider: UIGestureRecognizerDelegate {
         return true
     }
     
-    @objc open func didDrag(_ panGesture: UIPanGestureRecognizer) {
+    @objc public func didDrag(_ panGesture: UIPanGestureRecognizer) {
         switch panGesture.state {
             
             case .began:
@@ -58,7 +58,7 @@ extension DualSlider: UIGestureRecognizerDelegate {
     }
     
     // MARK: - Tap Gesture Handler
-    @objc open func tapGesture(_ tapGesture: UITapGestureRecognizer) {
+    @objc public func tapGesture(_ tapGesture: UITapGestureRecognizer) {
         
         if isHapticSnap { selectionFeedbackGenerator.prepare() }
         
@@ -77,7 +77,7 @@ extension DualSlider: UIGestureRecognizerDelegate {
         passSelectedValue()
     }
     
-    private func setLimitForThumb(atPosition position: CGFloat) {
+    public func setLimitForThumb(atPosition position: CGFloat) {
         
         let slideViewLength = slideView.bounds.size(in: orientation)
         //Managing lower and upper thum position for deadband limit
@@ -124,7 +124,7 @@ extension DualSlider: UIGestureRecognizerDelegate {
     ///   - targetPosition: position at which thumb to be moved
     ///   - stepSizeInView: stepsize in pixels
     /// - Returns: targetposition's new value
-    func boundedDraggedThumbPosition(targetPosition: CGFloat, stepSizeInView: CGFloat) -> CGFloat {
+    public func boundedDraggedThumbPosition(targetPosition: CGFloat, stepSizeInView: CGFloat) -> CGFloat {
         
         var delta = snapStepSize > 0 ? stepSizeInView : thumbViews[draggedThumbIndex].frame.size(in: orientation) / 2
         
@@ -151,7 +151,7 @@ extension DualSlider: UIGestureRecognizerDelegate {
         }
     }
     
-    private func updateDraggedThumbValue(relativeValue: CGFloat) {
+    public func updateDraggedThumbValue(relativeValue: CGFloat) {
         var newValue = relativeValue * (maximumValue - minimumValue)
         if orientation == .vertical {
             newValue = maximumValue - newValue
@@ -169,7 +169,7 @@ extension DualSlider: UIGestureRecognizerDelegate {
         }
     }
     
-    private func updateDraggedThumbPositionAndLabel() {
+    public func updateDraggedThumbPositionAndLabel() {
         positionThumbView(draggedThumbIndex)
         if draggedThumbIndex < valueLabels.count {
             updateValueLabel(draggedThumbIndex)
@@ -177,7 +177,7 @@ extension DualSlider: UIGestureRecognizerDelegate {
         updateThumbViewsAccordingToDeadBand()
     }
     
-    func updateThumbViewsAccordingToDeadBand() {
+    public func updateThumbViewsAccordingToDeadBand() {
         if sliderMode == .auto && value.count > 1 {
             if orientation == .vertical {
                 // Moving thumb position according to new heating or cooling value.
@@ -200,7 +200,7 @@ extension DualSlider: UIGestureRecognizerDelegate {
         }
     }
     
-    private func closestThumb(point: CGPoint) -> Int {
+    public func closestThumb(point: CGPoint) -> Int {
         var closest = -1
         var minimumDistance = CGFloat.greatestFiniteMagnitude
         for i in 0 ..< thumbViews.count {
@@ -217,7 +217,7 @@ extension DualSlider: UIGestureRecognizerDelegate {
     }
     
     /// MARK: Pass Selected value to controller
-    private func passSelectedValue() {
+    public func passSelectedValue() {
         switch sliderMode {
             case .heating:
                 if let valueChangeHandler = sliderValueChangeHandler {

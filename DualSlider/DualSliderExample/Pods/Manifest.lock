@@ -1,16 +1,16 @@
 PODS:
-  - DualSlider (0.0.6)
+  - DualSlider (0.0.7)
 
 DEPENDENCIES:
-  - DualSlider
+  - DualSlider (= 0.0.7)
 
 SPEC REPOS:
   trunk:
     - DualSlider
 
 SPEC CHECKSUMS:
-  DualSlider: ccf1e5e168c9cc856525e1583f9c361e5fc4ae87
+  DualSlider: 0f499d9581fd7c4a0d7f4fd1af5a7a74b80b0e63
 
-PODFILE CHECKSUM: f955da6c860c6beea7b09c9ab2ec8c350c25c8df
+PODFILE CHECKSUM: 3e05c0464c36e3ef524f0c111a92f3b61f36d9e5
 
 COCOAPODS: 1.10.1

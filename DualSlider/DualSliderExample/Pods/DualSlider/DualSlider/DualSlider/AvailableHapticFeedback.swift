@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 /// Wrapper for UIFeedbackGenerator that compiles on iOS 9
-open class AvailableHapticFeedback {
+public class AvailableHapticFeedback {
     public enum Style: CaseIterable {
         case selection
         case impactLight, impactMedium, impactHeavy
@@ -15,19 +15,19 @@ open class AvailableHapticFeedback {
         self.style = style
     }
     
-    open func prepare() {
+    public func prepare() {
         if #available(iOS 10.0, *) {
             feedbackGenerator.prepare()
         }
     }
     
-    open func generateFeedback() {
+    public func generateFeedback() {
         if #available(iOS 10.0, *) {
             feedbackGenerator.generate(style: style)
         }
     }
     
-    open func end() {
+    public func end() {
         _anyFeedbackGenerator = nil
     }
     
@@ -41,10 +41,10 @@ open class AvailableHapticFeedback {
         // swiftlint:enable force_cast force_unwrapping
     }
     
-    private var _anyFeedbackGenerator: Any?
+    public var _anyFeedbackGenerator: Any?
     
     @available(iOS 10.0, *)
-    private func createFeedbackGenerator() {
+    public func createFeedbackGenerator() {
         switch style {
             case .selection:
                 _anyFeedbackGenerator = UISelectionFeedbackGenerator()
@@ -66,21 +66,21 @@ protocol AvailableHapticFeedbackGenerator {
 
 @available(iOS 10.0, *)
 extension UISelectionFeedbackGenerator: AvailableHapticFeedbackGenerator {
-    func generate(style: AvailableHapticFeedback.Style) {
+    public func generate(style: AvailableHapticFeedback.Style) {
         selectionChanged()
     }
 }
 
 @available(iOS 10.0, *)
 extension UIImpactFeedbackGenerator: AvailableHapticFeedbackGenerator {
-    func generate(style: AvailableHapticFeedback.Style) {
+    public func generate(style: AvailableHapticFeedback.Style) {
         impactOccurred()
     }
 }
 
 @available(iOS 10.0, *)
 extension UINotificationFeedbackGenerator: AvailableHapticFeedbackGenerator {
-    func generate(style: AvailableHapticFeedback.Style) {
+    public func generate(style: AvailableHapticFeedback.Style) {
         let notificationFeedbackType: UINotificationFeedbackGenerator.FeedbackType
         switch style {
             case .notificationWarning:
